@@ -39,7 +39,7 @@ class UserRepository {
                 SELECT uuid, username
                 FROM aplication_user
                 WHERE username = $1
-                AND password = crypt($2, gen_salt('bf'))
+                AND password = crypt($2, 'my_salt')
             `;
 
             const values = [username, password]
@@ -58,7 +58,7 @@ class UserRepository {
                 username,
                 password
             )
-            VALUES ($1, crypt($2, gen_salt('bf')))
+            VALUES ($1, crypt($2, 'my_salt'))
             RETURNING uuid
         `;
 
@@ -73,7 +73,7 @@ class UserRepository {
             UPDATE aplication_user
             SET    
                 username = $1,
-                password = crypt($2, gen_salt('bf'))
+                password = crypt($2, 'my_salt')
             WHERE uuid = $3
         `;
 
@@ -92,4 +92,4 @@ class UserRepository {
     }
 }
 
-export default new UserRepository;
+export default new UserRepository();
