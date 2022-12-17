@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction} from 'express';
+import errorHandler from './middleware/error-handler.middleware';
 import statusRoute from './routes/status.route';
 import usersRoute from './routes/users.route';
 
@@ -11,6 +12,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(usersRoute)
 
 app.use(statusRoute)
+
+// configuração dos haddlers de error
+
+app.use(errorHandler)
 
 app.listen(3000, () => {
     console.log('aplication is running');
