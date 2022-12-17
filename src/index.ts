@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction} from 'express';
 import errorHandler from './middleware/error-handler.middleware';
+import authorizationRoute from './routes/authorization.route';
 import statusRoute from './routes/status.route';
 import usersRoute from './routes/users.route';
 
@@ -10,8 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 app.use(usersRoute)
-
 app.use(statusRoute)
+app.use(authorizationRoute)
 
 // configuração dos haddlers de error
 
