@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 
-const connectionString = 'postgres://ndkhlpbh:FF35lT-za8q-5_ba2cReLuAfMVplmUYv@mahmud.db.elephantsql.com/ndkhlpbh';
+const connectionString = 'i remove the connection for security';
 
 const db = new Pool({ connectionString });
 
